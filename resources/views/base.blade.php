@@ -7,18 +7,22 @@
     <title>@yield('title') &ndash; AIOT</title>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/sketchy/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/materia/bootstrap.min.css" rel="stylesheet">
     <link href="/css/app.css" rel="stylesheet">
 </head>
 <body>
 <div class="flex-center position-ref full-height">
     @if (Route::has('login'))
         <div class="top-right links">
-            @auth
-                <a href="{{ route('logout') }}">Logout</a>
-            @else
-                <a href="{{ route('login') }}">Login</a>
-            @endauth
+            @hasSection('top-links')
+                @yield('top-links')
+                |
+            @endif
+                @auth
+                    <a href="{{ route('logout') }}">Logout</a>
+                @else
+                    <a href="{{ route('login') }}">Login</a>
+                @endauth
         </div>
     @endif
 

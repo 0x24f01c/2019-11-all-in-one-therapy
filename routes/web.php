@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('frontend');
-});
+Route::get('/', 'FrontendController@index');
 Route::get('/login', function () {
     return view('login');
 })->name('login');
@@ -28,4 +26,5 @@ Route::group(['middleware' => ['auth']], function () {
     });
     Route::get('/patients', 'PatientController@index');
     Route::post('/patients', 'PatientController@index');
+    Route::get('/patients/{id}', 'PatientController@edit');
 });

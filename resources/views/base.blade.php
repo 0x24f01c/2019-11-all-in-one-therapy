@@ -7,29 +7,39 @@
     <title>@yield('title') &ndash; AIOT</title>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/litera/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/materia/bootstrap.min.css" rel="stylesheet">
     <link href="/css/app.css" rel="stylesheet">
 </head>
 <body>
-<div class="flex-center position-ref full-height">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="/">AIOT</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
     @if (Route::has('login'))
-        <div class="top-right links">
-            @hasSection('top-links')
-                @yield('top-links')
-                |
-            @endif
-            @auth
-                <a href="{{ route('logout') }}">Logout</a>
-            @else
-                <a href="{{ route('login') }}">Login</a>
-            @endauth
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+
+                @hasSection('top-links')
+                    @yield('top-links')
+                @endif
+                @auth
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('logout') }}">Logout</a>
+                </li>
+                @else
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('login') }}">Login</a>
+                </li>
+                @endauth
+            </ul>
         </div>
     @endif
-
+</nav>
+<div class="flex-center">
     <div class="content">
-        <div class="title m-b-md">
-            <h1>@yield('title') &ndash; AIOT</h1>
-        </div>
         <main>
             @yield('main')
         </main>

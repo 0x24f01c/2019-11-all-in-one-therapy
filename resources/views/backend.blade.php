@@ -2,10 +2,18 @@
 @section('title','Backend')
 @section('top-links')
     @auth
-        <a href="/patients">Patient</a>
-        <a href="/backend">Kalender</a>
-        <a href="/backend">Doku</a>
-        <a href="/">Frontend</a>
+        <li class="nav-item active">
+            <a class="nav-link" href="/patients">Patient</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="/backend">Kalender</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="/backend">Doku</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="/">Frontend</a>
+        </li>
     @endauth
 @endsection
 @section('main')

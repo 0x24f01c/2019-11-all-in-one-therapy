@@ -19287,8 +19287,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /v/2019-11-18_2019-11-24/2019-11-all-in-one-therapy/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /v/2019-11-18_2019-11-24/2019-11-all-in-one-therapy/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /vemap/htdocs/2019-11-all-in-one-therapy/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /vemap/htdocs/2019-11-all-in-one-therapy/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

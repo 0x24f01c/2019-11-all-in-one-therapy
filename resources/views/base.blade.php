@@ -7,8 +7,9 @@
     <title>@yield('title') &ndash; AIOT</title>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/materia/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/litera/bootstrap.min.css" rel="stylesheet">
     <link href="/css/app.css" rel="stylesheet">
+
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -39,7 +40,7 @@
     @endif
 </nav>
 <div class="flex-center">
-    <div class="content">
+    <div class="content">k
         <main>
             @yield('main')
         </main>

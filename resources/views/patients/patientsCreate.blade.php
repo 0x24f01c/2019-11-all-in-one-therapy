@@ -11,7 +11,7 @@
                 <div class="card-header"><h6>Neuen Patient anlegen: </h6></div>
                 <div class="card-body">
                     <label>SVNr:
-                        <input class="form-control" type="text" name="svnr" value="" >
+                        <input class="form-control" type="text" name="svnr">
                     </label><br>
                     <label>Nachname:
                         <input class="form-control" type="text" name="svnr">

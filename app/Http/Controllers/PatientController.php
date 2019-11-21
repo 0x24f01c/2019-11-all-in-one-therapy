@@ -17,7 +17,7 @@ class PatientController extends Controller
                 ->orWhere('svnr', 'like', '%' . $suche . '%')
                 ->orWhere('email', 'like', '%' . $suche . '%')
                 ->paginate(10);
-            return view('patients', [
+            return view('patients.patients', [
                 'patients' => $patients,
             ]);
         }

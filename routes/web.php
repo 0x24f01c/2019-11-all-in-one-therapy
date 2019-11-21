@@ -27,4 +27,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/patients', 'PatientController@index');
     Route::post('/patients', 'PatientController@index');
     Route::get('/patients/{id}', 'PatientController@edit');
+    Route::get('/patients/create', 'PatientController@create');
 });

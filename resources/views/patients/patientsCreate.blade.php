@@ -8,31 +8,29 @@
 
         <form method="post" action="">
             @csrf
-            @foreach($patients as $patient)
-                <div class="card-header"><h6>Patient: {{$patient->firstname}} {{$patient->lastname}}</h6></div>
+                <div class="card-header"><h6>Neuen Patient anlegen: </h6></div>
                 <div class="card-body">
                     <label>SVNr:
-                        <input class="form-control" type="text" name="svnr" value="{{ $patient->svnr  }}">
+                        <input class="form-control" type="text" name="svnr" value="" >
                     </label><br>
                     <label>Nachname:
-                        <input class="form-control" type="text" name="svnr" value="{{ $patient->lastname  }}">
+                        <input class="form-control" type="text" name="svnr">
                     </label>
                     <label>Vorname:
-                        <input class="form-control" type="text" name="svnr" value="{{ $patient->firstname  }}">
+                        <input class="form-control" type="text" name="svnr">
                     </label><br>
                     <label>Anschrift:
-                        <input class="form-control" type="text" name="svnr" value=" {{ $patient->address  }}">
+                        <input class="form-control" type="text" name="svnr">
                     </label>
                     <label>Postleitzahl:
-                        <input class="form-control" type="text" name="svnr" value="{{ $patient->plz  }}">
+                        <input class="form-control" type="text" name="svnr">
                     </label><br>
                     <label>Ort:
-                        <input class="form-control" type="text" name="svnr" value="{{ $patient->city  }}">
+                        <input class="form-control" type="text" name="svnr">
                     </label>
                     <label>Land:
-                        <input class="form-control" type="text" name="svnr" value=" {{ $patient->country  }}">
+                        <input class="form-control" type="text" name="svnr">
                     </label><br>
-                    @endforeach
                     <button class="btn btn-outline-primary" name="save">Speichern</button>
                 </div>
         </form>

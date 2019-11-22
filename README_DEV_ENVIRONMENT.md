@@ -1,8 +1,6 @@
 # Aufsetzen der Entwicklungsumgebung
 
-Dieses Dokument enthält exakte Anweisungen, um die Entwicklungsumgebung einheitlich aufzusetzen. Diese Anweisungen sollte jeder Entwickler pro Rechner einmalig ausführen. Die Kommandos sind im Projekt-Root in einer Git-Bash auszuführen
- * weil `CMD.exe` nicht alle benötigten Befehle unterstützt
- * weil `CMD.exe` keine History bietet
+Dieses Dokument enthält exakte Anweisungen, um die Entwicklungsumgebung einheitlich aufzusetzen. Diese Anweisungen sollte jeder Entwickler pro Rechner einmalig ausführen.
 
 ## Voraussetzungen
 
@@ -69,15 +67,6 @@ GRANT USAGE ON *.* TO 'aiot'@'localhost' REQUIRE NONE WITH MAX_QUERIES_PER_HOUR 
 GRANT ALL PRIVILEGES ON `dev.aiot`.* TO 'aiot'@'localhost'; 
 ```
 
-## Applikation erzeugen
-
-```
-composer create-project --prefer-dist laravel/laravel temp
-mv -vi temp/* ./
-mv -vi temp/.??* ./
-rmdir temp
-```
-
 ## Composer-Install
 
 Die lokalen Abhängigkeiten auf den im Repository eingecheckten Stand bringen:
@@ -86,12 +75,9 @@ Die lokalen Abhängigkeiten auf den im Repository eingecheckten Stand bringen:
 composer install
 ```
 
-## Development environment file kopieren
+## Copy development environment file
 
-Die Datei `.env.development` auf den Namen `.env` kopieren, diese dabei ggfs. überschreiben.
-```
-cp -v .env.development .env
-```
+Die Datei `.env.development` auf den Namen `.env` kopieren.
 
 ## App-Key generieren
 
@@ -103,18 +89,4 @@ php artisan key:generate
 
 ```
 npm install
-```
-
-# Laufend benötigte Kommandos
-
-## DB zurücksetzen / Migrationen und Seeding ausführen
-
-```
-php artisan migrate:fresh --seed
-```
-
-## JS/CSS-Assets bauen
-
-```
-npm run development
 ```

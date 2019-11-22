@@ -7,7 +7,7 @@
     <title>@yield('title') &ndash; AIOT</title>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/litera/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/cerulean/bootstrap.min.css" rel="stylesheet">
     <link href="/css/app.css" rel="stylesheet">
 
 </head>
@@ -22,25 +22,24 @@
     @if (Route::has('login'))
         <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav mr-auto">
-
-                @hasSection('top-links')
-                    @yield('top-links')
-                @endif
                 @auth
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('logout') }}">Logout</a>
-                </li>
+                    @hasSection('top-links')
+                        @yield('top-links')
+                    @endif
+                    <li class="nav-item">
+                        <strong><a class="nav-link" href="{{ route('logout') }}">| Logout</a></strong>
+                    </li>
                 @else
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">Login</a>
-                </li>
+                    <li class="nav-item">
+                        <strong><a class="nav-link" href="{{ route('login') }}">Login</a></strong>
+                    </li>
                 @endauth
             </ul>
         </div>
     @endif
 </nav>
 <div class="flex-center">
-    <div class="content">k
+    <div class="content">
         <main>
             @yield('main')
         </main>

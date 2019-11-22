@@ -11,21 +11,35 @@
 |
 */
 
-Route::get('/', 'FrontendController@index');
+use App\Patient;
+
+Route::get('/', function () {
+    return view('frontend');
+})->name('/');
+
 Route::get('/login', function () {
     return view('login');
 })->name('login');
 
-Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+Route::post('authenticate', 'Auth\LoginController@login')->name('authenticate');
 
-Route::post('/authenticate', 'Auth\LoginController@login')->name('authenticate');
+Route::group(["middleware" => ['auth']], function () {
 
-Route::group(['middleware' => ['auth']], function () {
     Route::get('/backend', function () {
         return view('backend');
-    });
-    Route::get('/patients', 'PatientController@index');
-    Route::post('/patients', 'PatientController@index');
-    Route::get('/patients/{id}', 'PatientController@edit');
-    Route::get('/patients/create', 'PatientController@create');
+    })->name('backend');
+
+    Route::get('/documentation/{patientId}', 'DocumentationController@create')->name('newdocumentation');
+    Route::post('/documentation/{patientId}', 'DocumentationController@store')->name('documentation');
+    Route::get('/documentations', 'DocumentationController@index')->name('documentations');
+
+    Route::get('/patients', 'PatientController@index')->name('patients');
+    Route::post('/patients', 'PatientController@index')->name('patients');
+    Route::get('/patient/{id}', 'PatientController@edit')->name('patient');
+    Route::get('/patient/', 'PatientController@create')->name('newpatient');
+    Route::post('/patient/', 'PatientController@store')->name('newpatient');
+    Route::post('/patient/{id}', 'PatientController@update')->name('patient');
+    Route::post('/patient/{id}/delete', 'PatientController@destroy');
+    Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+
 });

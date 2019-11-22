@@ -15,14 +15,14 @@ class CreatePatientsTable extends Migration
     {
         Schema::create('patients', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('svnr')->unique();
             $table->string('firstname');
             $table->string('lastname');
             $table->string('email');
-            $table->text('address');
-            $table->string('plz');
-            $table->string('city');
+            $table->string('svnr');
             $table->string('country')->default('Österreich');
+            $table->string('city');
+            $table->string('plz');
+            $table->text('address');
             $table->timestamps();
         });
     }

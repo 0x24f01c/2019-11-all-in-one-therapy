@@ -25,7 +25,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password'
+        'password', 'remember_token',
     ];
 
     /**
@@ -34,7 +34,39 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
-        'updated_at' => 'datetime',
-        'created_at' => 'datetime'
+        'email_verified_at' => 'datetime',
     ];
+
+    public function documentations()
+    {
+        return $this->hasMany('App\Documentation');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function roles()
+    {
+        return $this->belongsToMany('App\Role');
+    }
+
+    public function addRole(string $roleName)
+    {
+        $role = Role::where('name', $roleName)->first();
+        $this->roles()->save($role);
+    }
+
+    public function hasPermissions(string $permissionName): bool
+    {
+
+        $hasPermission = false;
+
+        foreach ($this->roles as $role) {
+            if ($role->hasPermission($permissionName)) {
+                $hasPermission = true;
+                break;
+            }
+        }
+
+    }
 }

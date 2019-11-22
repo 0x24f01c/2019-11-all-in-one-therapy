@@ -1,21 +1,22 @@
 @extends('base')
-@section('title','Backend')
-@section('top-links')
-    @auth
-        <li class="nav-item active">
-            <a class="nav-link" href="/patients">Patient</a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="/backend">Kalender</a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="/backend">Doku</a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="/">Frontend</a>
-        </li>
-    @endauth
+
+@section('title')
+    Home
 @endsection
-@section('main')
-    Willkommen im Backend.
+@section('top-links')
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('patients') }}">Patient</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('backend') }}">Rechnung</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('backend') }}">Termin</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('documentations') }}">Dokumentation</a>
+    </li>
+@endsection
+@section ('main')
+    Willkommen im Backend
 @endsection

@@ -1,16 +1,33 @@
 @extends('base')
-@section('title','Login')
-@section('main')
-    {{-- Login-Formular --}}
-    <form method="post" action="{{  route('authenticate')  }}">
-        @csrf
-        @if ($errors->any())
-        <p class="alert alert-danger">Die Zugangsdaten sind nicht korrekt!</p>
-        @endif
-        <p><label><input class="form-control" type="text" name="name" placeholder="Benutzer"></label></p>
-        <p><label><input class="form-control" type="password" name="password" placeholder="Passwort"></label></p>
-        <p>
-            <button class="btn btn-primary" type="submit">Login</button>
-        </p>
-    </form>
+@section('title')
+    Login
+@endsection
+@section ('main')
+        <form method="post" action="{{ route('authenticate') }}">
+            @csrf
+            @if ($errors->has('name'))
+                <p class="validation-failed">
+                    {{ $errors->first('name') }}<br/>
+                    <input class="validation-failed" placeholder="Username" type="text" name="name" value="{{ old('name') }}">
+                </p>
+            @else
+                <p>
+                    <input placeholder="Username" type="text" name="name">
+                </p>
+            @endif
+            @if ($errors->has('password'))
+                <p class="validation-failed">
+                    {{ $errors->first('password') }} <br/>
+                    <input class="validation-failed" placeholder="Password" type="password" name="password" >
+                </p>
+            @else
+                <p>
+                    <input placeholder="Password" type="password" name="password">
+                </p>
+            @endif
+            <p>
+                <button type="submit">Login</button>
+                <a href="{{ route('/') }}">Cancel</a>
+            </p>
+        </form>
 @endsection

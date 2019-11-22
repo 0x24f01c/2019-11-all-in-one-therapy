@@ -1,16 +1,23 @@
+.validation-failed {
+  border: 1px solid red;
+}
+
+.message {
+  border: 1px solid darkgreen;
+  padding: 10px;
+  background-color: lightgreen;
+  font-weight: bold;
+}
+
 html,
 body {
   background-color: #fff;
   color: #636b6f;
   font-family: "SF Pro Display", sans-serif;
-  font-size: 14pt;
+  font-size: 12pt;
   font-weight: 200;
   height: 100vh;
   margin: 0;
-}
-
-a {
-  cursor: pointer;
 }
 
 .full-height {
@@ -48,7 +55,7 @@ a {
   color: #636b6f;
   padding: 0 25px;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: bold;
   letter-spacing: 0.1rem;
   text-decoration: none;
   text-transform: uppercase;
@@ -56,5 +63,39 @@ a {
 
 .m-b-md {
   margin-bottom: 30px;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+th,
+td {
+  text-align: left;
+}
+
+.validation-errors {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid darkred;
+  background-color: lightpink;
+  padding: 10px;
+}
+
+.validation-error {
+  color: darkred;
+}
+
+.inputform {
+  width: 50%;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.inputform label {
+  width: 150px;
 }
 

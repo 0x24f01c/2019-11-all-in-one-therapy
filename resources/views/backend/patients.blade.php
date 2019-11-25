@@ -82,6 +82,8 @@
                         <button class='btn btn-outline-info' type='submit'>Löschen</button>
                     </form>
                 </td>
+                <td></td>
+                <td></td>
                 </tr>
 
             @endforeach

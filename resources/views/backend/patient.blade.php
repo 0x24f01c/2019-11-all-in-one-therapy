@@ -32,26 +32,20 @@
             <p class="validation-error">{{ $message }}</p>
             @enderror
             <p>
-                <label>Name:</label>
-                <input class="form-control" type="text" name="firstname" value="{{$patient ? $patient->firstname : old('firstname')}}"
-                       placeholder="Vorname">
-                <input class="form-control" type="text" name="lastname" value="{{$patient ? $patient->lastname : old('lastname')}}"
-                       placeholder="Nachname">
+
+
             </p>
             @error('email')
             <p class="validation-error">{{ $message }}</p>
             @enderror
             <p>
-                <label>E-Mail:</label>
 
-                <input class="form-control" type="text" name="email" value="{{$patient ? $patient->email : old('email')}}" placeholder="E-Mail">
             </p>
             @error('svnr')
             <p class="validation-error">{{ $message }}</p>
             @enderror
             <p>
-                <label>SVNr:</label>
-                <input class="form-control" type="text" name="svnr" value="{{$patient ? $patient->svnr : old('svnr')}}" placeholder="SVNr">
+
             </p>
             @error('address')
             <p class="validation-error">{{ $message }}</p>
@@ -65,37 +59,92 @@
             @error('country')
             <p class="validation-error">{{ $message }}</p>
             @enderror<p>
-                <label>Adresse:</label>
-                <input type="text" name="address" value="{{$patient ? $patient->address : old('address')}}"
-                       placeholder="Adresse">,<br/>
-                <label></label>
-                <input type="text" name="plz" value="{{$patient ? $patient->plz : old('plz')}}" placeholder="PLZ">
-                <input type="text" name="city" value="{{$patient ? $patient->city : old('city')}}" placeholder="Stadt">,
-                <br />
-                <label></label>
-                <input type="text" name="country" value="{{$patient ? $patient->country: old('country')}}" placeholder="Land">
+
+                <br/>
+
+
+                <br/>
+
             </p>
             <p>
-                <button type="submit">{{ $patient ? 'Anlegen' : 'Speichern' }}</button>
+                <button class="btn btn-outline-info" type="submit">{{ $patient ? 'Anlegen' : 'Speichern' }}</button>
             </p>
+
+
+            <div class="form-row">
+                <div class="form-group col-md-2">
+                    <label for="svnr">SVNr: </label>
+                    <input class="form-control" type="text" name="svnr" id="svnr"
+                           value="{{$patient ? $patient->svnr : old('svnr')}}"
+                           placeholder="SVNr">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="firstname">Name:</label>
+                    <input class="form-control" type="text" name="firstname" id="firstname"
+                           value="{{$patient ? $patient->firstname : old('firstname')}}"
+                           placeholder="Vorname">
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="lastname"></label>
+                    <input class="form-control" type="text" name="lastname" id="lastname"
+                           value="{{$patient ? $patient->lastname : old('lastname')}}"
+                           placeholder="Nachname">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="email">E-Mail:</label>
+                    <input class="form-control" type="text" name="email" for="email"
+                           value="{{$patient ? $patient->email : old('email')}}" placeholder="E-Mail">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="address">Adresse:</label>
+                    <input class="form-control" type="text" name="address" id="address"
+                           value="{{$patient ? $patient->address : old('address')}}"
+                           placeholder="Adresse">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="city">Ort:</label>
+                    <input class="form-control" type="text" name="city" id="city"
+                           value="{{$patient ? $patient->city : old('city')}}"
+                           placeholder="Stadt">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="country">Land:</label>
+                    <input class="form-control" type="text" name="country" id="country"
+                           value="{{$patient ? $patient->country: old('country')}}" placeholder="Land">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="plz">PLZ: </label>
+                    <input class="form-control" type="text" name="plz" id="plz"
+                           value="{{$patient ? $patient->plz : old('plz')}}"
+                           placeholder="PLZ">
+                </div>
+            </div>
+
+
         </div>
     </form>
     @if($patient)
         <form method="post" action="/patient/{{$patient->id}}/delete">
             @csrf
             <p>Diesen Patienten löschen:
-                <button type="submit">Löschen</button>
+                <button class="btn btn-outline-info" type="submit">Löschen</button>
             </p>
         </form>
 
         <h2>Dokumentationen</h2>
         @if(!empty($patient->documentations))
             <table class="table table-hover">
+                <thead>
                 <tr>
                     <th>Datum</th>
                     <th>Autor</th>
                     <th>Beschreibung</th>
                 </tr>
+                </thead>
+                <tbody>
                 @foreach($patient->documentations as $documentation)
                     <tr>
                         <td>{{ $documentation->created_at->toDateString() }}</td>
@@ -104,6 +153,7 @@
                         <td></td>
                     </tr>
                 @endforeach
+                </tbody>
             </table>
         @else
             <p>Keine Dokumentation vorhanden.</p>
